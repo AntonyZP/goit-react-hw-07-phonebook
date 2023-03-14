@@ -1,10 +1,10 @@
 import { useDispatch } from 'react-redux';
-import { deleteContacts } from 'redux/contactsSlice';
+import { deleteContacts } from 'redux/operations';
 import {
   ContactWrapper,
   ContactNumber,
   ContactName,
-  DeleteButton
+  DeleteButton,
 } from 'components/ContactListItem/ContactListItem.styled';
 
 export const ContactListItem = ({ name, number, id }) => {
@@ -14,12 +14,10 @@ export const ContactListItem = ({ name, number, id }) => {
   return (
     <ContactWrapper key={id}>
       <ContactName>
-          {name}
-          <ContactNumber> 
-              {number}
-          </ContactNumber>
+        {name}
+        <ContactNumber>{number}</ContactNumber>
       </ContactName>
       <DeleteButton onClick={handleDelete}>Delete</DeleteButton>
-  </ContactWrapper>
+    </ContactWrapper>
   );
-}; 
+};
